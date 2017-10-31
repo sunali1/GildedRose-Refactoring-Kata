@@ -12,8 +12,8 @@ describe GildedRose do
       expect(items[0].name).to eq "foo"
     end
   end
-    it "degrades item 'Conjured' twice as quickly " do
-      items = [Item.new("Conjured", 50, 80)]
+    it "degrades item 'Conjuring' twice as quickly " do
+      items = [Item.new("Conjuring", 50, 80)]
       GildedRose.new(items).never_sold()
     end
 

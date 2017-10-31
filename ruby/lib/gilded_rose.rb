@@ -14,7 +14,7 @@
 
   def normal_item_quality
     @items.each do |item|
-      if item.name == "Conjured"
+      if item.name == "Conjuring"
         item.quality = item.quality + 1
       end
     end
