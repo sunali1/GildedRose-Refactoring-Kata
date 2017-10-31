@@ -1,4 +1,4 @@
-  class GildedRose
+class GildedRose
 
   def initialize(items)
     @items = items
@@ -12,11 +12,11 @@
     end
   end
 
-  def normal_item_quality
-    @items.each do |item|
-      if item.name == "Conjuring"
-        item.quality = item.quality + 1
-      end
+  def degrading_normally
+      @items.each do |item|
+        item.sell_in -= 1
+        item.quality = item.quality - 1
+      break if item.quality <= 0
     end
   end
 

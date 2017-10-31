@@ -12,18 +12,22 @@ describe GildedRose do
       expect(items[0].name).to eq "foo"
     end
   end
-    it "degrades item 'Conjuring' twice as quickly " do
-      items = [Item.new("Conjuring", 50, 80)]
-      GildedRose.new(items).never_sold()
+    it "degrading item normally" do
+      items = [Item.new("Elixir of the Mongoose", 5, 7)]
+      GildedRose.new(items).degrading_normally()
+      expect(items[0].quality).to eq 6
+      expect(items[0].sell_in).to eq 4
     end
 
   describe "items never sold" do
     it "never sells 'Sulfuras'" do
-      items = [Item.new("Sulfuras, Hand of Ragnaros", 50, 80)]
+      items = [Item.new("Sulfuras, Hand of Ragnaros", 0, 80)]
       GildedRose.new(items).never_sold()
       expect(items[0].quality).to eq 80
     end
   end
 
-
+  # Item.new(name="Backstage passes to a TAFKAL80ETC concert", sell_in=15, quality=20),
+  #   Item.new(name="Backstage passes to a TAFKAL80ETC concert", sell_in=10, quality=49),
+  #   Item.new(name="Backstage passes to a TAFKAL80ETC concert", sell_in=5, quality=49),
 end
