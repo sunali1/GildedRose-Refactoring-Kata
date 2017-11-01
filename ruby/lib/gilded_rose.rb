@@ -20,6 +20,15 @@ class GildedRose
     end
   end
 
+  def backstage_quality
+    @items.each do |item|
+      item.sell_in -= 1
+      item.quality = 0 if item.sell_in = 0
+      item.quality = item.quality + 3 if item.sell_in > 1 && item.sell_in <= 5
+      item.quality = item.quality + 2 if item.sell_in > 5 && item.sell_by <= 10
+    end
+  end
+
   def update_quality()
     @items.each do |item|
       if item.name != "Aged Brie" and item.name != "Backstage passes to a TAFKAL80ETC concert"

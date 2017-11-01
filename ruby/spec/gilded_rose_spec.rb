@@ -27,6 +27,14 @@ describe GildedRose do
     end
   end
 
+  describe "item 'Backstage passes to a TAFKAL80ETC concert' quality" do
+    it "when sell_by date has passed" do
+      items = [Item.new("Backstage passes to a TAFKAL80ETC concert", 0, 20)]
+      GildedRose.new(items).backstage_quality()
+      expect(items[0].quality).to eq 0
+    end
+  end
+
   # Item.new(name="Backstage passes to a TAFKAL80ETC concert", sell_in=15, quality=20),
   #   Item.new(name="Backstage passes to a TAFKAL80ETC concert", sell_in=10, quality=49),
   #   Item.new(name="Backstage passes to a TAFKAL80ETC concert", sell_in=5, quality=49),
